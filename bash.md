@@ -9,7 +9,6 @@ e === 3 // поскольку приводим типы и работаем с �
 3. ##########################
 # !/bin/bash
 declare -i per_item
-declare -i
 port=80
 per_item=5
 ip_list=('192.168.0.1' '173.194.222.113' '87.250.250.242')
@@ -21,8 +20,8 @@ do
     while [ $i -lt $per_item ]
     do
         target="${ip}:${port}"
-	      curl $target
-	      "${target} | ${?}" >> curl.log
+        curl $target
+        "${target} | ${?}" >> curl.log
         let "i+=1"
     done
 done
@@ -30,7 +29,6 @@ done
 4. ##########################
 # !/bin/bash
 declare -i per_item
-declare -i
 port=80
 per_item=5
 ip_list=('192.168.0.1' '173.194.222.113' '87.250.250.242')
@@ -42,12 +40,12 @@ do
     while (1==1)
     do
         target="${ip}:${port}"
-	      curl $target
-	      if (($? != 0))
-	      then
-	        $ip >> curl.log
-	        break
-	      fi
-        let "i+=1"
+        curl $target
+        if (($? != 0))
+        then
+            $ip >> curl.log
+        break
+        fi
+    let "i+=1"
     done
 done
